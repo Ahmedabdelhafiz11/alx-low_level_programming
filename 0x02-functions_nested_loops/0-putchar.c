@@ -2,6 +2,9 @@
 
 /**
  * main -  prints -Putchar, followed by a new line
+ *
+ * Description: prints _putchar
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
