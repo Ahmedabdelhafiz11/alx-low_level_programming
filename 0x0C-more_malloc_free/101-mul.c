@@ -1,87 +1,92 @@
-#include <stdlib.h>
-#include "coding.h"
+#include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-int _atoi(char *s);
-int _strlen(char *s);
 /**
- * main - function with two arguments
- * @argc: argument count
- * @argv: argument value
- *
- * Description: program that multiplies two positive numbers
- * Return: value
+ * _puts - prints a string, followed by a new line,
+ * @str: pointer to the string to print
+ * Return: void
  */
-int main(int argc, char *argv[])
+
+void _puts(char *str)
 {
-	int count, len1, len2, temp1, temp2, *array, *result;
-
-	if (argc != 3)
-	{
-		printf("Error\n");
-		exit (98);
-	}
-
-	len1 = _strlen(argv[1]);
-	len2 = _strlen(argv[2]);
-	t_len = len1 + len2 - 1;
-
-	array = malloc(sizeof(char) * (len1 + len2 + 1));
-	if (array == NULL)
-		return (NULL);
-
-	len1 -= 1;
-	len2 -= 1;
-	for (count = 1; argv[count] != '\0', count++)
-	{
-		for (; argv[1][len1]; len1--)
-		{
-			temp1 = argv[1][len1 - 1] - '0';;
-		}
-		for (; argv[2][len2]; len2--)
-		{
-			temp2 = argv[2][len2 - 1] - '0';
-		}
-		for (; array[t_len] > 0
-		if ((temp1 * temp2) > 9)
-			array[
-	}
+int i = 0;
+while (str[i])
+{
+_putchar(str[i]);
+i++;
 }
 
-int _atoi(char *s)
-{
-	int i, sign, numb;
-
-	i = 0;
-	sign = 1;
-	numb = 0;
-
-	while (s[i] != '\0')
-	{
-		if (s[i] == '-')
-			sign *= -1;
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			while (s[i] >= '0' && s[i] <= '9')
-			{
-				numb = (s[i] - '0') * sign + numb * 10;
-				i++;
-			}
-			break;
-		}
-		i++;
-	}
-	return (numb);
 }
 
-int _strlen(char *s)
-{
-	int i;
+/**
+ * _atoi - convert a string to an integer.
+ * @s: char type string
+ * Return: integer converted
+ */
 
-	i = 0;
-	while (*(s + i) != '\0')
-	{
-		i++;
-	}
-	return (i);
+int _atoi(const char *s)
+{
+int sign = 1;
+unsigned long int resp = 0, firstNum, i;
+
+for (firstNum = 0; !(s[firstNum] >= 48 && s[firstNum] <= 57); firstNum++)
+{
+if (s[firstNum] == '-')
+{
+sign *= -1;
+}
+}
+
+for (i = firstNum; s[i] >= 48 && s[i] <= 57; i++)
+{
+resp *= 10;
+resp += (s[i] - 48);
+}
+
+return (sign *resp);
+}
+
+/**
+ * print_int - prints an integer.
+ * @n: int
+ * Return: 0
+ */
+
+void print_int(unsigned long int n)
+{
+
+unsigned  long int divisor = 1, i, resp;
+
+for (i = 0; n / divisor > 9; i++, divisor *= 10)
+;
+
+for (; divisor >= 1; n %= divisor, divisor /= 10)
+{
+resp = n / divisor;
+_putchar('0' + resp);
+}
+
+}
+
+/**
+ * main - print the result of the multiplication, followed by a new line
+ * @argc: int
+ * @argv: list
+ * Return: 0
+ */
+
+int main(int argc, char const *argv[])
+{
+(void)argc;
+
+if (argc != 3)
+{
+_puts("Error ");
+exit(98);
+}
+print_int(_atoi(argv[1]) * _atoi(argv[2]));
+_putchar('\n');
+
+return (0);
 }
