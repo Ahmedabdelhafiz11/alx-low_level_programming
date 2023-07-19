@@ -1,30 +1,29 @@
-#include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - Entry file
- * @argc: arguments count
- * @argv: arguments array
+ * main - Entry point
+ * @argc: number of arguments
+ * @argv: arguments
  *
- * Return: 0 (Success)
+ * Return: always 0.
  */
-int main(int argc, char **argv)
-{
-	int a;
-	int (*fun_ptr)(int, int);
 
-	if (argc != 4)
+int main(int argc, char *argv[])
+{
+	int i;
+
+	if (argc != 2)
 	{
 		printf("Error\n");
-		exit(98);
+		exit(1);
 	}
-	fun_ptr = get_op_func(argv[2]);
-	if (!fun_ptr)
+	if (atoi(argv[1]) < 0)
 	{
 		printf("Error\n");
-		exit(99);
+		exit(2);
 	}
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-	printf("%d\n", fun_ptr(a, b));
-	return (0);
+	for (i = 0; i < atoi(argv[1]); i++)
+		printf("%.2x ", i);
+	printf("\n");
 }
