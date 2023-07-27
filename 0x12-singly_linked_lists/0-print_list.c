@@ -4,25 +4,25 @@
 /**
  * Prints all the elements of a list_t.
  *
- * @x: The list_t.
+ * @h: The list_t.
  *
- * Return: The number of nodes in x.
+ * Return: The number of nodes in h.
 */
 
-size_t print_list(const list_t *x)
+size_t print_list(const list_t *h)
 {
 	size_t nodes = 0;
 
-	while (x)
+	while (h)
 	{
-		if (x->str == NULL)
+		if (h->str == NULL)
 			printf("[0] (nil)\n");
 
 		else
-			printf("[%d] %s\n", x->len, x->str);
+			printf("[%d] %s\n", h->len, h->str);
 
 		nodes++;
-		x = x->next;
+		h = h->next;
 	}
 
 	return (nodes);
