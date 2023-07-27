@@ -1,9 +1,21 @@
-          global    main
-          extern    printf
+extern printf
 
-          section   .text
-main:                                       ; This is called by the C library startup code
-          mov       rdi, message            ; First integer (or pointer) argument in rdi
-          call      printf                    ; puts(message)
-          ret                               ; Return from main back into C library wrapper
-message:  db        "Hello, Holberton", 0
+section .text
+   global main
+
+main:
+   push rbp
+
+   mov rdi,fmt
+   mov rsi,msg
+   mov rax,0
+   call printf
+
+   pop rbp
+
+   mov rax,0
+   ret
+
+section .data
+   msg: db "Hello, Holberton", 0
+   fmt: db "%s", 10, 0
