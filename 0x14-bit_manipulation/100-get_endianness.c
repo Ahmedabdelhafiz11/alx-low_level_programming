@@ -2,6 +2,7 @@
 
 /**
  * get_endian - check endian
+ * descreption: checks the endianness
  * Return: 0 if big, or 1 if little
 */
 int get_endianness(void)
