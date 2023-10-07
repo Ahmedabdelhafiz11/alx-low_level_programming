@@ -9,7 +9,8 @@
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *new_table;
-		unsigned long int index;
+	unsigned long int index;
+
 		if (size <= 0) /* size must be a positive number */
 		return (NULL);
 
